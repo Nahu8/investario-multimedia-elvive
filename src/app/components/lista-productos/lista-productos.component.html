@@ -1,0 +1,64 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg animated-card">
+      <div class="card-header text-center bg-gradient-primary text-white">
+        <h1 class="mb-0">Catálogo de Productos</h1>
+      </div>
+      <div class="card-body">
+        <!-- Selector de categorías -->
+        <mat-form-field appearance="outline" class="w-100 mb-4 form-animated">
+          <mat-label>Selecciona una categoría</mat-label>
+          <mat-select [(value)]="selectedCategory" (selectionChange)="onCategoryChange($event.value)">
+            <mat-option *ngFor="let category of categories" [value]="category">
+              {{ category | titlecase }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <!-- Botón para agregar un nuevo producto -->
+        <div class="text-end mb-3">
+          <button mat-raised-button color="primary" class="button-animated" (click)="openAddOrEditProductModal()">Agregar Producto</button>
+        </div>
+  
+        <!-- Indicador de carga -->
+        <div *ngIf="loading" class="text-center">
+          <mat-spinner></mat-spinner>
+          <p class="text-white">Cargando productos...</p>
+        </div>
+  
+        <!-- Lista de productos en tabla -->
+        <div *ngIf="!loading && items.length > 0">
+          <table class="table table-striped table-hover table-animated">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Cantidad</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of items">
+                <td>{{ item.tipo }}</td>
+                <td>{{ item.descripcion }}</td>
+                <td>{{ item.cantidad }}</td>
+                <td>
+                  <button mat-icon-button color="accent" class="action-animated" (click)="openAddOrEditProductModal(item)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <button mat-icon-button color="warn" class="action-animated" (click)="openDeleteConfirmation(item)">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <!-- Mensaje cuando no hay productos -->
+        <div *ngIf="!loading && items.length === 0" class="text-center mt-4 empty-animated">
+          <p class="text-muted">No se encontraron productos en esta categoría.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

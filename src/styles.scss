@@ -1,0 +1,116 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+/* Fondo oscuro y texto claro */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #121212; /* Fondo oscuro */
+    font-family: 'Roboto', sans-serif;
+    color: #e0e0e0; /* Texto claro */
+  }
+  
+  /* Contenedor centrado y animaciones */
+  .container {
+    width: 100%; /* Adaptable en pantallas pequeñas */
+    background: #1e1e1e; /* Fondo oscuro para la tarjeta */
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeInScale 0.6s ease-out;
+  }
+  
+  .card {
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  
+  .card-header {
+    background: linear-gradient(45deg, #f700ff83, #0056b3);
+    color: #fff;
+    font-size: 1.8rem;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
+  /* Botones con animación */
+  button {
+    font-weight: bold;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Animaciones */
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .animated-card {
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  /* Estilo de las tablas */
+  table {
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    width: 100%;
+  }
+  
+  th {
+    background-color: #8e2897ad;
+    color: white;
+    padding: 0.5rem;
+  }
+  
+  td {
+    background-color: #1e1e1e; /* Fondo oscuro para las celdas */
+    color: #e0e0e0; /* Texto claro */
+    padding: 0.5rem;
+    border-radius: 5px;
+  }
+  
+  .text-center p {
+    color: #6c757d;
+  }
+  
+  /* Indicador de carga */
+  .mat-spinner {
+    margin: auto;
+  }
+  
+  /* Animación general */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Formulario animado */
+  .form-animated {
+    animation: fadeIn 1s ease-out;
+  }
+  
